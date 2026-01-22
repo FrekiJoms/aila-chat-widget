@@ -1,23 +1,23 @@
-# 🤖 AILA Chat Widget
+# AILA Chat Widget
 
 Production-ready, feature-rich chat widget with beautiful AILA gradient design and seamless integration.
 
-## ✨ Features
+## Features
 
-- 🎨 **Beautiful AILA Gradient Design** - Animated gradient backgrounds with glass morphism
-- 💬 **Rich Message Support** - Full Markdown (bold, italic, code) and safe HTML rendering
-- ⚡ **Typing Indicators** - Smooth animated typing indicators with pulsing dots
-- 📱 **Mobile Optimized** - Responsive floating widget with touch-friendly interface
-- 🔄 **n8n Compatible API** - Drop-in replacement for existing n8n workflows
-- 🎯 **Session Tracking** - Automatic persistent session ID generation
-- 💭 **Floating Text** - Animated "Chat with AILA" prompt above launcher
-- 👆 **Click-Outside Close** - Intuitive click-outside-to-close functionality
-- ♿ **Full Accessibility** - ARIA labels, keyboard navigation, screen reader support
-- 🔒 **CSP Safe** - Content Security Policy compliant rendering
-- 🌙 **High Contrast Support** - Respects prefers-reduced-motion and high contrast
-- 📱 **Safe Area Support** - Optimized for notched phones and modern devices
+- **Beautiful AILA Gradient Design** - Animated gradient backgrounds with glass morphism
+- **Rich Message Support** - Full Markdown (bold, italic, code) and safe HTML rendering
+- **Typing Indicators** - Smooth animated typing indicators with pulsing dots
+- **Mobile Optimized** - Responsive floating widget with touch-friendly interface
+- **n8n Compatible API** - Drop-in replacement for existing n8n workflows
+- **Session Tracking** - Automatic persistent session ID generation
+- **Floating Text** - Animated "Chat with AILA" prompt above launcher
+- **Click-Outside Close** - Intuitive click-outside-to-close functionality
+- **Full Accessibility** - ARIA labels, keyboard navigation, screen reader support
+- **CSP Safe** - Content Security Policy compliant rendering
+- **High Contrast Support** - Respects prefers-reduced-motion and high contrast
+- **Safe Area Support** - Optimized for notched phones and modern devices
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Basic Integration (n8n Compatible)
 
@@ -54,7 +54,7 @@ Production-ready, feature-rich chat widget with beautiful AILA gradient design a
 </script>
 ```
 
-## 📁 File Structure
+## File Structure
 
 ### Distribution Files (Ready for Deployment)
 ```
@@ -82,7 +82,7 @@ dist/
 - `dist/chat-widget.bundle.js` - Core widget class (advanced)
 - `icon.png` - Launcher icon (optional)
 
-## 🎯 Configuration Options
+## Configuration Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
@@ -98,7 +98,7 @@ dist/
 - **Enhanced Accessibility**: Full keyboard navigation and ARIA support
 - **Safe Area Support**: Handles notched phones and rounded corners
 
-## 💬 Message Format
+## Message Format
 
 Your webhook should return JSON with a `reply`, `response`, or `message` field:
 
@@ -128,7 +128,7 @@ Your webhook should return JSON with a `reply`, `response`, or `message` field:
 ### Streaming Support
 Widget supports both JSON responses and streaming text/plain responses for real-time typing effects.
 
-## 🔧 Development
+## Development
 
 ### Local Testing
 
@@ -183,7 +183,7 @@ The session ID is sent with every message:
 }
 ```
 
-## 🚀 Deployment Guide
+## Deployment Guide
 
 ### GitHub Pages (Recommended)
 
@@ -227,13 +227,50 @@ The session ID is sent with every message:
    </script>
    ```
 
+## CDN Usage (Ready Now!)
+
+### jsDelivr CDN (Recommended)
+
+```html
+<!-- AILA Chat Widget CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/aila-chat-widget@v1.0.0/dist/chat-widget.css">
+
+<!-- AILA Chat Widget JavaScript -->
+<script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/aila-chat-widget@v1.0.0/dist/aila-chat.umd.min.js"></script>
+<script>
+    AILAChat.createChat({
+        webhookUrl: 'YOUR_WEBHOOK_URL'
+    });
+</script>
+```
+
+### ES Module Version (Modern Browsers)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/aila-chat-widget@v1.0.0/dist/chat-widget.css">
+<script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/gh/YOUR_USERNAME/aila-chat-widget@v1.0.0/dist/aila-chat.bundle.js';
+    
+    createChat({
+        webhookUrl: 'YOUR_WEBHOOK_URL'
+    });
+</script>
+```
+
+### unpkg Alternative
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/aila-chat-widget@1.0.0/dist/chat-widget.css">
+<script src="https://unpkg.com/aila-chat-widget@1.0.0/dist/aila-chat.umd.min.js"></script>
+```
+
 ### NPM Package (Coming Soon)
 
 ```bash
 npm install aila-chat-widget
 ```
 
-## 🎨 Customization
+## Customization
 
 ### CSS Variables
 
@@ -253,7 +290,7 @@ Override these variables in your CSS:
 
 Replace the launcher bubble icon by adding an `icon.png` file or updating the HTML in `chat-widget.js`.
 
-## 🔒 Security & CSP
+## Security & CSP
 
 The widget is Content Security Policy (CSP) safe:
 - No `eval()` or dangerous functions
@@ -261,7 +298,7 @@ The widget is Content Security Policy (CSP) safe:
 - Safe markdown parsing
 - No inline styles or scripts
 
-## 📱 Browser Support
+## Browser Support
 
 - ✅ Chrome 90+
 - ✅ Firefox 88+
@@ -270,7 +307,7 @@ The widget is Content Security Policy (CSP) safe:
 - ✅ Mobile Safari/iOS
 - ✅ Chrome Mobile
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Chat doesn't appear
 1. Check console for errors
@@ -287,18 +324,18 @@ The widget is Content Security Policy (CSP) safe:
 2. Check for CSS conflicts with your site
 3. Verify CSS variables are not overridden
 
-## 📄 License
+## License
 
 MIT License - Feel free to use in commercial projects!
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
 
-## ✅ Pre-Deployment Checklist
+## Pre-Deployment Checklist
 
 ### Before Deploying
 - [ ] Test all features in `demo.html`
@@ -329,6 +366,6 @@ aila-chat-widget/
 
 ---
 
-**🚀 Production Ready - Version 1.9.5**
+**Production Ready - Version 1.9.5**
 
 Made with ❤️ by freki

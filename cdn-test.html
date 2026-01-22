@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AILA Chat Widget - CDN Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .test-header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .cdn-status {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .cdn-status.loading {
+            background: rgba(255, 165, 0, 0.1);
+            border-color: rgba(255, 165, 0, 0.3);
+        }
+        .cdn-status.error {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: rgba(255, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🌐 AILA Chat Widget CDN Test</h1>
+            <p>Testing CDN loading and functionality...</p>
+            
+            <div id="cssStatus" class="cdn-status loading">
+                📦 Loading CSS from CDN...
+            </div>
+            
+            <div id="jsStatus" class="cdn-status loading">
+                📦 Loading JavaScript from CDN...
+            </div>
+            
+            <div id="widgetStatus" class="cdn-status loading">
+                🤖 Initializing Widget...
+            </div>
+        </div>
+    </div>
+
+    <!-- Test CDN URLs - Updated with your actual repository -->
+    <link id="cssLink" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FrekiJoms/AILA-CHAT-WIDGET@v1.0.0/dist/chat-widget.css">
+    <script src="https://cdn.jsdelivr.net/gh/FrekiJoms/AILA-CHAT-WIDGET@v1.0.0/dist/aila-chat.umd.min.js"></script>
+    
+    <script>
+        // Test CDN Loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const cssStatus = document.getElementById('cssStatus');
+            const jsStatus = document.getElementById('jsStatus');
+            const widgetStatus = document.getElementById('widgetStatus');
+            
+            // Test CSS Loading
+            setTimeout(() => {
+                const testElement = document.createElement('div');
+                testElement.className = 'aila-chat-launcher';
+                const styles = window.getComputedStyle(testElement);
+                
+                if (styles.display === 'flex' || styles.position === 'fixed') {
+                    cssStatus.className = 'cdn-status';
+                    cssStatus.innerHTML = '✅ CSS loaded successfully from CDN!';
+                } else {
+                    cssStatus.className = 'cdn-status error';
+                    cssStatus.innerHTML = '❌ CSS failed to load from CDN';
+                }
+            }, 1000);
+            
+            // Test JavaScript Loading
+            setTimeout(() => {
+                if (typeof AILAChat !== 'undefined' && AILAChat.createChat) {
+                    jsStatus.className = 'cdn-status';
+                    jsStatus.innerHTML = '✅ JavaScript loaded successfully from CDN!';
+                    
+                    // Initialize widget
+                    try {
+                        AILAChat.createChat({
+                            webhookUrl: 'https://tambayanph.app.n8n.cloud/webhook/ictworkflow',
+                            welcomeMessage: `Hello! I'm AILA loaded from CDN! 🚀`,
+                            position: 'bottom-right',
+                            autoShow: false
+                        });
+                        
+                        widgetStatus.className = 'cdn-status';
+                        widgetStatus.innerHTML = '✅ Widget initialized successfully! Look in bottom-right corner →';
+                    } catch (error) {
+                        widgetStatus.className = 'cdn-status error';
+                        widgetStatus.innerHTML = '❌ Widget initialization failed: ' + error.message;
+                    }
+                } else {
+                    jsStatus.className = 'cdn-status error';
+                    jsStatus.innerHTML = '❌ JavaScript failed to load from CDN';
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
