@@ -53,20 +53,26 @@
   }
   100% {
     background-position: 0% 50%;
+    }
   }
-}
 
-/* Global Body Styles (from style.css) */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
-  background-size: 300% 300%;
-  animation: grad 14s ease infinite;
-  color: #e8fbff;
-  overflow: hidden;
-}
+  /* Better scroll behavior on mobile */
+  .aila-chat-messages {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Better scroll behavior on mobile */
+  .aila-chat-messages {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent bounce scroll on iOS */
+  .aila-chat-container {
+    position: fixed;
+    overscroll-behavior: contain;
+  }
 
 /* Launcher Bubble */
 .aila-chat-launcher {
@@ -585,19 +591,19 @@ body {
   }
 
   .aila-chat-container {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    max-height: 100vh;
-    overflow: hidden;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+    top: 4rem;
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - 5rem);
+    min-height: 350px;
+    border-radius: var(--aila-radius);
   }
 
   .aila-chat-header {
-    border-radius: 0;
+    border-radius: var(--aila-radius) var(--aila-radius) 0 0;
     padding: 1rem 1.2rem;
     min-height: 60px;
   }
@@ -607,18 +613,20 @@ body {
     flex: 1;
     overflow-y: auto;
     padding-bottom: 80px; /* Space for input area */
+    max-height: calc(100vh - 250px); /* Limit height on mobile */
   }
 
   .aila-chat-input-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
-    border-top: 1px solid var(--aila-border);
-    padding: 0.75rem 1rem;
+    position: sticky;
+    bottom: 20px;
+    left: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
     border-radius: 0;
-    z-index: 1000;
+    z-index: 200;
+    margin: 0 12px 12px 12px;
   }
 
   .aila-chat-input {
@@ -663,6 +671,7 @@ body {
   .aila-chat-header {
     padding: 0.75rem 1rem;
     min-height: 56px;
+    border-radius: var(--aila-radius) var(--aila-radius) 0 0;
   }
 
   .aila-chat-header h3 {
@@ -675,7 +684,14 @@ body {
   }
 
   .aila-chat-input-container {
-    padding: 0.5rem 0.75rem;
+    position: sticky;
+    bottom: 15px;
+    left: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 10px 10px 10px;
   }
 
   .aila-chat-input {
@@ -714,6 +730,12 @@ body {
       padding-right: calc(0.75rem + env(safe-area-inset-right));
       padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
     }
+  }
+
+  /* Body adjustments for keyboard */
+  body.aila-keyboard-open {
+    position: fixed;
+    width: 100%;
   }
 }
 
