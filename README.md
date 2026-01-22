@@ -233,15 +233,35 @@ The session ID is sent with every message:
 
 ```html
 <!-- AILA Chat Widget CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/aila-chat-widget@v1.0.0/dist/chat-widget.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FrekiJoms/aila-chat-widget@v1.0.0/dist/chat-widget.css">
 
 <!-- AILA Chat Widget JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/aila-chat-widget@v1.0.0/dist/aila-chat.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/FrekiJoms/aila-chat-widget@v1.0.0/dist/aila-chat.umd.min.js"></script>
 <script>
     AILAChat.createChat({
         webhookUrl: 'YOUR_WEBHOOK_URL'
     });
 </script>
+```
+
+### ES Module Version (Modern Browsers)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FrekiJoms/aila-chat-widget@v1.0.0/dist/chat-widget.css">
+<script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/gh/FrekiJoms/aila-chat-widget@v1.0.0/dist/aila-chat.bundle.js';
+    
+    createChat({
+        webhookUrl: 'YOUR_WEBHOOK_URL'
+    });
+</script>
+```
+
+### unpkg Alternative
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/aila-chat-widget@1.0.0/dist/chat-widget.css">
+<script src="https://unpkg.com/aila-chat-widget@1.0.0/dist/aila-chat.umd.min.js"></script>
 ```
 
 ### ES Module Version (Modern Browsers)

@@ -27,7 +27,13 @@
         }
 
         getSessionId() {
-            let sessionId = sessionStorage.getItem('aila_session_id');
+           let sessionId;
+try {
+  sessionId = sessionStorage.getItem('aila_session_id');
+} catch (e) {
+  sessionId = null;
+}
+
             if (!sessionId) {
                 sessionId = 'guest_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
                 sessionStorage.setItem('aila_session_id', sessionId);

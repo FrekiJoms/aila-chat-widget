@@ -15,13 +15,13 @@ Once your repository is public on GitHub, these URLs will work immediately:
 
 ### JavaScript Bundle (UMD - works everywhere)
 ```html
-<script src="https://cdn.jsdelivr.net/gh/FrekiJoms/AILA-CHAT-WIDGET@v1.0.0/dist/aila-chat.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/FrekiJoms/aila-chat-widget@v1.0.0/dist/aila-chat.umd.min.js"></script>
 ```
 
 ### JavaScript Bundle (ES Module - modern browsers)
 ```html
 <script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/gh/FrekiJoms/AILA-CHAT-WIDGET@v1.0.0/dist/aila-chat.bundle.js';
+  import { createChat } from 'https://cdn.jsdelivr.net/gh/FrekiJoms/aila-chat-widget@v1.0.0/dist/aila-chat.bundle.js';
 </script>
 ```
 
@@ -122,7 +122,7 @@ jsDelivr has edge servers in:
 
 Once deployed, you can track CDN usage:
 - jsDelivr: https://www.jsdelivr.com/package/gh/yourusername/aila-chat-widget
-- GitHub: https://github.com/FrekiJoms/AILA-CHAT-WIDGET insights
+- GitHub: https://github.com/FrekiJoms/aila-chat-widget insights
 
 ## ⚡ Next Steps
 
