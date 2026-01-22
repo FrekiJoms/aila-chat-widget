@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AILA Chat Widget - Simple Integration</title>
+
+    <!-- AILA Chat Widget Styles -->
+    <link href="../dist/chat-widget.css" rel="stylesheet" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        min-height: 100vh;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Arial;
+        color: #e8fbff;
+        background: linear-gradient(120deg, #041428, #07263a, #03304a);
+        background-size: 300% 300%;
+        animation: grad 14s ease infinite;
+      }
+
+      .demo-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .demo-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #00d1ff, #1dd3c9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .demo-description {
+        font-size: 1.1rem;
+        color: #9fb6c6;
+        margin-bottom: 2rem;
+      }
+
+      .code-block {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: left;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+      }
+
+      .highlight {
+        color: #00d1ff;
+        font-weight: 600;
+      }
+
+      @keyframes grad {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-container">
+      <h1 class="demo-title">🤖 AILA Chat Widget</h1>
+      <p class="demo-description">
+        Enhanced chat widget with markdown support, typing indicators, and
+        beautiful AILA gradient design
+      </p>
+
+      <div class="code-block">
+        <strong>Simple Integration (n8n compatible):</strong><br /><br />
+        <span class="highlight">&lt;link</span> href=<span class="highlight"
+          >"../dist/chat-widget.css"</span
+        >
+        rel=<span class="highlight">"stylesheet"</span> /&gt;<br />
+        <span class="highlight">&lt;script type="module"&gt;</span><br />
+        &nbsp;&nbsp;import { createChat } from
+        <span class="highlight">'../dist/aila-chat.bundle.js'</span
+        >;<br /><br />
+        &nbsp;&nbsp;createChat({<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;webhookUrl:
+        <span class="highlight">'YOUR_WEBHOOK_URL'</span><br />
+        &nbsp;&nbsp;});<br />
+        <span class="highlight">&lt;/script&gt;</span>
+      </div>
+
+      <div class="code-block">
+        <strong>Advanced Options:</strong><br /><br />
+        <span class="highlight">&lt;script type="module"&gt;</span><br />
+        &nbsp;&nbsp;import { createChat } from
+        <span class="highlight">'../dist/aila-chat.bundle.js'</span
+        >;<br /><br />
+        &nbsp;&nbsp;createChat({<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;webhookUrl:
+        <span class="highlight">'YOUR_WEBHOOK_URL'</span>,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;welcomeMessage:
+        <span class="highlight">'Hello! I\\'m AILA!'</span>,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;position:
+        <span class="highlight">'bottom-right'</span>,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;autoShow: <span class="highlight">false</span
+        ><br />
+        &nbsp;&nbsp;});<br />
+        <span class="highlight">&lt;/script&gt;</span>
+      </div>
+
+      <p style="margin-top: 3rem; color: #9fb6c6">
+        The chat bubble should appear in the bottom-right corner.<br />
+        Click it to start chatting with AILA! 🚀
+      </p>
+    </div>
+
+    <!-- AILA Chat Widget Initialization -->
+    <script type="module">
+      import { createChat } from "../dist/aila-chat.bundle.js";
+
+      createChat({
+        webhookUrl: "https://tambayanph.app.n8n.cloud/webhook/ictworkflow",
+        welcomeMessage: `Hello! I'm AILA, your AI assistant. How can I help you today?`,
+        position: "bottom-right",
+        autoShow: false, // Let user click to open
+      });
+    </script>
+  </body>
+</html>
